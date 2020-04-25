@@ -1,1 +1,30 @@
-[{"title":"Book 1","imageUrl":"https://bookforum.ua/wp-content/uploads/2020/01/How-to-format-a-book.jpg","price":"15","description":"Book 1","id":"0.1308264398764778"},{"title":"Book 2","imageUrl":"https://bookforum.ua/wp-content/uploads/2020/01/How-to-format-a-book.jpg","price":"25","description":"Book 2","id":"0.9972985419744853"},{"title":"Book 3","imageUrl":"https://bookforum.ua/wp-content/uploads/2020/01/How-to-format-a-book.jpg","price":"26","description":"Book 3","id":"0.5434366913785909"},{"title":"Book 4","imageUrl":"https://bookforum.ua/wp-content/uploads/2020/01/How-to-format-a-book.jpg","price":"35","description":"Book 5","id":"0.0419180704230131"}]
+[
+    {
+        "title": "Book 1",
+        "imageUrl": "https://bookforum.ua/wp-content/uploads/2020/01/How-to-format-a-book.jpg",
+        "price": "15",
+        "description": "Book 1",
+        "id": "0.1308264398764778"
+    },
+    {
+        "title": "Book 2",
+        "imageUrl": "https://bookforum.ua/wp-content/uploads/2020/01/How-to-format-a-book.jpg",
+        "price": "25",
+        "description": "Book 2",
+        "id": "0.9972985419744853"
+    },
+    {
+        "title": "Book 3",
+        "imageUrl": "https://bookforum.ua/wp-content/uploads/2020/01/How-to-format-a-book.jpg",
+        "price": "26",
+        "description": "Book 3",
+        "id": "0.5434366913785909"
+    },
+    {
+        "title": "Book 4",
+        "imageUrl": "https://bookforum.ua/wp-content/uploads/2020/01/How-to-format-a-book.jpg",
+        "price": "35",
+        "description": "Book 5",
+        "id": "0.0419180704230131"
+    }
+]

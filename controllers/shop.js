@@ -14,15 +14,20 @@ exports.getProducts = async (req, res) => {
   }
 };
 
-exports.getProduct = (req, res, next) => {
-  const prodId = req.params.id;
-  Product.findById(prodId, product => {
+exports.getProduct = async (req, res, next) => {
+  try {
+    const prodId = req.params.id;
+    const [product] = await Product.findById(prodId);
+    console.log('product', product);
+
     res.render('shop/product-detail', {
-      product,
+      product: product[0],
       pageTitle: product.title,
       path: '/products'
     })
-  });
+  } catch (err) {
+    console.log("Error: ", err);
+  }
 };
 
 exports.getIndex = async (req, res, next) => {

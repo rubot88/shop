@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 
 const sequelize = require('../util/database');
+const User = require('./user');
 
 const Product = sequelize.define('product', {
   id: {
@@ -26,5 +27,11 @@ const Product = sequelize.define('product', {
     allowNull: false,
   },
 });
+
+Product.belongsTo(User, {
+  constraints: true,
+  onDelete: 'CASCADE'
+});
+User.hasMany(Product);
 
 module.exports = Product;

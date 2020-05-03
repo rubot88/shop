@@ -19,8 +19,18 @@ form {
   display: inline;
 }
 
-.centered{
+.centered {
   text-align: center;
+}
+
+.image {
+  max-width: 25%;
+  margin: 0 auto ;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
 }
 
 .main-header {

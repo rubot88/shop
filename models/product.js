@@ -28,10 +28,5 @@ const Product = sequelize.define('product', {
   },
 });
 
-Product.belongsTo(User, {
-  constraints: true,
-  onDelete: 'CASCADE'
-});
-User.hasMany(Product);
 
 module.exports = Product;

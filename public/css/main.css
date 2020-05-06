@@ -24,13 +24,11 @@ form {
 }
 
 .image {
-  max-width: 25%;
-  margin: 0 auto ;
+  height: 20rem;
 }
 
 .image img {
-  width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .main-header {
@@ -204,6 +202,17 @@ form {
 .btn:hover,
 .btn:active {
   background-color: #00695c;
+  color: white;
+}
+
+.btn.danger {
+  color: red;
+  border-color: red;
+}
+
+.btn.danger:hover,
+.btn.danger:active {
+  background: red;
   color: white;
 }
 

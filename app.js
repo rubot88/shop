@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const errorController = require('./controllers/error');
-const syncModels = require('./util/syncModels');
 const setUser = require('./middlewares/setUser');
+const { mongoConnect } = require('./util/database');
 
 const app = express();
 
@@ -24,10 +24,9 @@ app.use(shopRoutes);
 
 app.use(errorController.get404Page);
 
-syncModels()
-    .then(() => {
-        app.listen(3000);
-    })
-    .catch(err => {
-        console.log('Error:', err);
-    });
+mongoConnect(() => {
+    app.listen(3000);
+    console.log('Listen on Port 3000');
+});
+
+

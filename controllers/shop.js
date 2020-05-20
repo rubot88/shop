@@ -2,7 +2,7 @@ const Product = require('../models/product');
 
 exports.getProducts = async (req, res) => {
   try {
-    const products = await Product.fetchAll();    
+    const products = await Product.fetchAll();
     res.render('shop/product-list', {
       products,
       pageTitle: 'All Products',
@@ -54,26 +54,29 @@ exports.getCart = async (req, res, next) => {
 exports.postCart = async (req, res, next) => {
   try {
     const id = req.body.productId;
-    let quantity = 1;
-    const cart = await req.user.getCart();
-    const [cartProduct] = await cart.getProducts({ where: { id } });
-    if (cartProduct) {
-      const oldQuantity = cartProduct.cartItem.quantity;
-      quantity = oldQuantity + 1;
-      await cart.addProduct(cartProduct, {
-        through: {
-          quantity,
-        }
-      })
-    } else {
-      const product = await Product.findByPk(id);
-      await cart.addProduct(product, {
-        through: {
-          quantity,
-        }
-      })
-    }
-    res.redirect('/cart');
+    const { user } = req;
+    const product = await Product.findById(id);
+    const result = await user.addToCart(product);
+    //   let quantity = 1;
+    //   const cart = await req.user.getCart();
+    //   const [cartProduct] = await cart.getProducts({ where: { id } });
+    //   if (cartProduct) {
+    //     const oldQuantity = cartProduct.cartItem.quantity;
+    //     quantity = oldQuantity + 1;
+    //     await cart.addProduct(cartProduct, {
+    //       through: {
+    //         quantity,
+    //       }
+    //     })
+    //   } else {
+    //     const product = await Product.findByPk(id);
+    //     await cart.addProduct(product, {
+    //       through: {
+    //         quantity,
+    //       }
+    //     })
+    //   }
+    //   res.redirect('/cart');
   } catch (error) {
     console.log("Error: ", error);
   }

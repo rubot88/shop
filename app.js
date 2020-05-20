@@ -8,6 +8,7 @@ const shopRoutes = require('./routes/shop');
 const errorController = require('./controllers/error');
 const setUser = require('./middlewares/setUser');
 const { mongoConnect } = require('./util/database');
+const User = require('./models/user');
 
 const app = express();
 
@@ -25,8 +26,7 @@ app.use(shopRoutes);
 app.use(errorController.get404Page);
 
 mongoConnect(() => {
-    app.listen(3000);
-    console.log('Listen on Port 3000');
+    app.listen(3000, () => console.log('Listen on Port 3000'));
 });
 
 

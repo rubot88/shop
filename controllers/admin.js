@@ -9,9 +9,16 @@ exports.getAddProduct = (req, res) => {
 };
 
 exports.postAddProduct = async (req, res) => {
-  try {
+  try {    
     const { title, price, description, imageUrl } = req.body;
-    const product = new Product(title, price, description, imageUrl);
+    const product = new Product(
+      title,
+      price,
+      description,
+      imageUrl,
+      null,
+      req.user._id
+    );
     await product.save();
     res.redirect('/admin/products');
   } catch (error) {
@@ -72,12 +79,12 @@ exports.getProducts = async (req, res) => {
   }
 }
 
-// exports.postDeleteProduct = async (req, res) => {
-//   const id = req.body.productId;
-//   try {
-//     await Product.destroy({ where: { id } });
-//     res.redirect('/admin/products');
-//   } catch (error) {
-//     console.log("Error: ", error);
-//   }
-// };
+exports.postDeleteProduct = async (req, res) => {
+  const id = req.body.productId;
+  try {
+    await Product.deleteById(id);
+    res.redirect('/admin/products');
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
